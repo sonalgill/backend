@@ -22,15 +22,19 @@ router.get('/test-me', function (req, res) {
     ttrim.upper()
 
     let arr = [ 'jan', 'feb', 'mar', 'apr','may', 'june', 'july', 'aug', 'sep', 'oct', 'nov', 'dec'  ]
-    let splitmonths  = _.chunk(arr, 4)
+    let splitmonths  = _.chunk(arr, 3)
     console.log(splitmonths)
 
     let arr2 = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
     let last = _.tail(arr2)
     console.log(last)
 
-    let arr3 = ([1, 2], [ 2, 3])
-    let merge = _.union(arr3)
+    let array_1 = [1, 2]
+    let array_2 = [2, 3, 8]
+    let array_3 = [3, 6, 7]
+    let array_4 = [21, 34, 43]
+    let array_5 = [21, 4, 76]
+    let merge = _.union(array_1, array_2, array_3, array_4, array_5)
     console.log(merge)
 
     let arr4 = [['horror', 'The Shining'],['drama','Titanic'],['thriller','Shutter Island'],['fantasy','Pans Labyrinth']]
