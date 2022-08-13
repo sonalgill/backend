@@ -89,23 +89,21 @@ router.post('/players/:playerName/booking/:bookingID', function (req, res) {
 
 
 let votingArr = [
-    { "name": "Sonal", "age": "10", "voting status": "false" },
-    { "name": "Arpit", "age": "20", "voting status": "false" },
-    { "name": "Rohan", "age": "70", "voting status": "false" },
-    { "name": "Tanuj", "age": "5", "voting status": "false" },
-    { "name": "Shub", "age": "40", "voting status": "false" }
+    { name: "Sonal", age: 10, votingStatus: false },
+    { name: "Arpit", age: 20, votingStatus: false },
+    { name: "Rohan", age: 70, votingStatus: false },
+    { name: "Tanuj", age: 5, votingStatus: false },
+    { name: "Shub", age: 40, votingStatus: false }
 ]
 
-let voteArr = []
+
 router.post('/voting', function (req, res) {
     let list = req.query.votingAge
-    for (i = 0; i < votingArr.length; i++) {
-        if (votingArr[i].age > 10) {
-            votingArr[i]
-        }
-    } res.send(voteArr)
-
+    let newArr = votingArr.filter(eligible => eligible.age > list)
+    newArr.map(i => i.votingStatus = true)
+    res.send(newArr)
 })
+
 
 
 router.get('/test-me', function (req, res) {
