@@ -1,6 +1,11 @@
 const express = require('express');
 const abc = require('../introduction/intro')
 const router = express.Router();
+const bookController = require('../controller/bookController')
+
+router.post('/add-book', bookController.addBook)
+router.get('/getBookList', bookController.bookList)
+
 
 
 let players = [
@@ -90,10 +95,10 @@ router.post('/players/:playerName/booking/:bookingID', function (req, res) {
 
 let votingArr = [
     { name: "Sonal", age: 10, votingStatus: false },
+    { name: "Shub", age: 40, votingStatus: false },
     { name: "Arpit", age: 20, votingStatus: false },
     { name: "Rohan", age: 70, votingStatus: false },
-    { name: "Tanuj", age: 5, votingStatus: false },
-    { name: "Shub", age: 40, votingStatus: false }
+    { name: "Tanuj", age: 5, votingStatus: false }
 ]
 
 
