@@ -6,6 +6,13 @@ const bookController = require('../controller/bookController')
 router.post('/add-book', bookController.addBook)
 router.get('/getBookList', bookController.bookList)
 
+router.post('/createBook', bookController.createBook)
+ router.get('/bookList', bookController.allBooks)
+ router.post('/getBooksInYear', bookController.byYear)
+ router.get('/getParticularBooks', bookController.particularBook)
+router.get('/getXINRBooks',bookController.byINR)
+ router.get('/getRandomBooks', bookController.randomBooks)
+
 
 
 let players = [
