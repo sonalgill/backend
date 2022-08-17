@@ -22,8 +22,10 @@ const bookSchema2 = new mongoose.Schema({
         required: true
     },
     authorName: String,
-    price: {IndianPrice: Number, 
-        EuropeanPrice : Number},
+    price: {
+        IndianPrice: Number,
+        EuropeanPrice: Number
+    },
     year: {
         type: Number,
         default: 2021
@@ -34,3 +36,7 @@ const bookSchema2 = new mongoose.Schema({
 }, { timestamps: true })
 
 module.exports = mongoose.model('Book-2', bookSchema2)
+
+
+
+

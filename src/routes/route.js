@@ -14,6 +14,13 @@ router.get('/getXINRBooks',bookController.byINR)
  router.get('/getRandomBooks', bookController.randomBooks)
 
 
+router.post('/createBookdata', bookController.createBookData)
+router.post('/createAuthorData', bookController.author)
+router.get('/getByAuthor', bookController.getByAuthor)
+router.get('/updatePrice', bookController.updatePrice)
+router.get('/priceRange', bookController.priceRange)
+
+
 
 let players = [
     {
