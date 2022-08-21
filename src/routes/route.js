@@ -15,6 +15,5 @@ router.get('/allData', bookController.allData)
 router.get('/updateCover', bookController.updateCover)
 router.get('/updatePrice', bookController.updatePrice)
 
-router.get('/demo', publisherController.updP)
 
 module.exports = router;

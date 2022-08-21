@@ -53,7 +53,7 @@ const updatePrice = async function (req, res) {
     let aID = await authorModel.find({ rating: { $gt: 3.5 } }).select({ _id: 1 }).lean()
     let arr = []
     aID.map(a => { arr.push(a._id) })
-    let data = await bookModel.updateMany({author: [...arr]}, {$inc: {price: 10}}, {})
+    let data = await bookModel.updateMany({author: [...arr]}, {$inc: {price: 10}})
     res.send(data)
 }
 module.exports.updatePrice = updatePrice
