@@ -1,5 +1,4 @@
 const { default: mongoose } = require("mongoose")
-const { populate } = require("../model/authorModel")
 const authorModel = require("../model/authorModel")
 const bookModel = require("../model/bookModel")
 const publisherModel = require("../model/publisherModel")
@@ -50,10 +49,10 @@ const updateCover = async function (req, res) {
 module.exports.updateCover = updateCover
 
 const updatePrice = async function (req, res) {
-    let aID = await authorModel.find({ rating: { $gt: 3.5 } }).select({ _id: 1 }).lean()
+    let aID = await authorModel.find({ rating: { $gt: 3.5 } }).select({ _id: 1 })
     let arr = []
     aID.map(a => { arr.push(a._id) })
-    let data = await bookModel.updateMany({author: [...arr]}, {$inc: {price: 10}})
+    let data = await bookModel.updateMany({author: [...arr]}, {$inc: {price: 5}})
     res.send(data)
 }
 module.exports.updatePrice = updatePrice
