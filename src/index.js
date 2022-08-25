@@ -1,8 +1,8 @@
 const express = require('express');
 var bodyParser = require('body-parser');
 
-const route = require('./routes/route.js');
-const globalMidW = require('../src/middleWare')
+const route = require('./routes/route');
+
 
 const app = express();
 const { default: mongoose } = require('mongoose')
@@ -17,7 +17,7 @@ mongoose.connect("mongodb+srv://sonal-plutonium:5dJokPsnG43EGYHE@cluster0.koc4qx
     .then(() => console.log("MongoDB is connected"))
     .catch(err => console.log(err))
 
-app.use(globalMidW.midW)
+
 
 app.use('/', route);
 
