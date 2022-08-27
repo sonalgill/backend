@@ -1,17 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
-const productController = require("../controller/productController")
 const userController = require('../controller/userController')
-const orderController = require('../controller/orderController')
+const loginController = require('../controller/loginController')
+const userDetailsController = require("../controller/userDetails")
+const updateDetails = require('../controller/updateDetails')
+const deleteDetails = require('../controller/deleteUser')
 
-const midWare = require('../middleWare/midWare')
 
-router.post('/createProduct', productController.addProduct)
+const midWare = require('../middleWare/auth')
 
-router.post('/createUser', midWare.userMid,  userController.createUser)
-
-router.post('/createOrder', midWare.userMid, orderController.createOrder)
+router.post('/registerUser', userController.createUser)
+router.post('/userLogin', loginController.loginUser)
+router.get('/users/:userId', midWare.midWare1, userDetailsController.userDetails)
+router.put('/updateDetails/:userId', midWare.midWare1, updateDetails.updateDetails)
+router.delete('/deleteDetails/:userId',  midWare.midWare1, deleteDetails.deleteDetails)
 
 
 module.exports = router;
