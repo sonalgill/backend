@@ -13,8 +13,11 @@ const midWare1 = async function (req, res, next) {
     if (!idCheck) { return res.send("Not a valid userID") }
     let check = await userModel.findById(userId)
     if (!check) { return res.send("No such user exist") }
+    let user = decodedToken.userID
+    if(user != userId){ return res.send("You are not authorized to do this.")}
     next()
 }
+
 
 module.exports.midWare1 = midWare1
 
